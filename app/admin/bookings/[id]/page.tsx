@@ -77,7 +77,7 @@ export default async function AdminBookingDetailPage({
             </div>
             <div className="px-6 py-4">
               <div className="flex items-start gap-4">
-                {booking.tool.imageUrl && (
+                {booking.tool?.imageUrl && (
                   <img
                     src={booking.tool.imageUrl}
                     alt={booking.tool.name}
