@@ -21,7 +21,13 @@ A mobile-first tool rental platform optimized for Facebook Marketplace traffic w
 
 ## 🚀 Quick Start
 
-### New Session? Start Here!
+### Ready to Deploy?
+
+🚢 **[QUICK_DEPLOY.md](./QUICK_DEPLOY.md)** - Deploy to Vercel in 5 minutes
+📋 **[DEPLOYMENT_SUMMARY.md](./DEPLOYMENT_SUMMARY.md)** - Deployment overview
+📖 **[VERCEL_DEPLOYMENT_GUIDE.md](./VERCEL_DEPLOYMENT_GUIDE.md)** - Complete deployment guide
+
+### New Development Session?
 
 📖 **[START_HERE.md](./START_HERE.md)** - Your entry point for new sessions
 
