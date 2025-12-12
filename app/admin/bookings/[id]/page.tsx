@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import BookingStatusBadge from "@/components/admin/BookingStatusBadge";
 import BookingActions from "@/components/admin/BookingActions";
+import { BookingWithDetails } from "@/types";
 
 export default async function AdminBookingDetailPage({
   params,
@@ -11,11 +12,14 @@ export default async function AdminBookingDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const booking = await getBookingById(id);
+  const bookingData = await getBookingById(id);
 
-  if (!booking) {
+  if (!bookingData || !bookingData.tool) {
     notFound();
   }
+
+  // Type assertion since we've verified tool exists
+  const booking = bookingData as BookingWithDetails;
 
   const rentalDays = Math.ceil(
     (new Date(booking.rentalEndDate).getTime() -
