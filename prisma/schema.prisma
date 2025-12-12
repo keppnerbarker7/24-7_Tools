@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Categories for organizing tools
+model Category {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  tools Tool[]
+
+  @@map("categories")
+}
+
+// Tool inventory
+model Tool {
+  id              String   @id @default(uuid())
+  name            String
+  slug            String   @unique
+  description     String
+  categoryId      String   @map("category_id")
+  dailyRate       Decimal  @db.Decimal(10, 2) @map("daily_rate")
+  depositAmount   Decimal  @db.Decimal(10, 2) @map("deposit_amount")
+  imageUrl        String?  @map("image_url")
+  igloohomeLockId String?  @map("igloohome_lock_id")
+  isActive        Boolean  @default(true) @map("is_active")
+  isFeatured      Boolean  @default(false) @map("is_featured")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  category Category  @relation(fields: [categoryId], references: [id])
+  bookings Booking[]
+
+  @@map("tools")
+}
+
+// User accounts (optional for customers, required for admins)
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  role      String   @default("customer") // "customer" or "admin"
+  createdAt DateTime @default(now()) @map("created_at")
+
+  bookings Booking[]
+
+  @@map("users")
+}
+
+// Bookings
+model Booking {
+  id              String    @id @default(uuid())
+  toolId          String    @map("tool_id")
+  userId          String?   @map("user_id") // Nullable for guest checkouts
+  customerName    String    @map("customer_name")
+  customerEmail   String    @map("customer_email")
+  customerPhone   String    @map("customer_phone")
+  rentalStartDate DateTime  @map("rental_start_date")
+  rentalEndDate   DateTime  @map("rental_end_date")
+  totalAmount     Decimal   @db.Decimal(10, 2) @map("total_amount")
+  rentalFee       Decimal   @db.Decimal(10, 2) @map("rental_fee")
+  depositAmount   Decimal   @db.Decimal(10, 2) @map("deposit_amount")
+  accessCode      String?   @map("access_code")
+  status          String    @default("pending") // pending, confirmed, pending_code, completed, cancelled
+  paymentIntentId String?   @unique @map("payment_intent_id")
+  trafficSource   String?   @map("traffic_source") // facebook_marketplace, direct, catalog
+  fbListingId     String?   @map("fb_listing_id")
+  emailSentAt     DateTime? @map("email_sent_at")
+  reminderSentAt  DateTime? @map("reminder_sent_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  tool Tool  @relation(fields: [toolId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
+
+  @@index([rentalStartDate])
+  @@index([rentalEndDate])
+  @@index([status])
+  @@map("bookings")
+}
+
+// Stripe payment tracking
+model PaymentIntent {
+  id             String   @id @default(uuid())
+  stripeIntentId String   @unique @map("stripe_intent_id")
+  amount         Decimal  @db.Decimal(10, 2)
+  status         String // pending, succeeded, failed
+  bookingId      String?  @unique @map("booking_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@map("payment_intents")
+}
