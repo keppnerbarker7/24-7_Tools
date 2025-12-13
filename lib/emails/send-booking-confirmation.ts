@@ -43,14 +43,19 @@ export async function sendBookingConfirmation(params: SendBookingConfirmationPar
       bookingId,
     });
 
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from,
       to,
       subject: `Booking Confirmed: ${toolName} - Utah Valley Tool Rental`,
       html: emailHtml,
     });
 
-    console.log(`✅ Booking confirmation email sent to ${to}`, { emailId: data.id });
+    if (error) {
+      console.error("❌ Resend API error:", error);
+      throw new Error(`Failed to send email: ${error.message}`);
+    }
+
+    console.log(`✅ Booking confirmation email sent to ${to}`, { emailId: data?.id });
     return data;
   } catch (error) {
     console.error("❌ Failed to send booking confirmation email:", error);
