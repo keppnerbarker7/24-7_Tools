@@ -89,6 +89,8 @@ export type ToolWithCategory = Tool & {
 };
 
 export type BookingWithDetails = Booking & {
-  tool: Tool;
+  tool: Tool & {
+    category: Category;
+  };
   user?: User;
 };

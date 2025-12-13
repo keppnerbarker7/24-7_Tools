@@ -14,14 +14,12 @@ export default async function AdminBookingDetailPage({
   const { id } = await params;
   const bookingData = await getBookingById(id);
 
-  if (!bookingData || !bookingData.tool) {
+  if (!bookingData || !bookingData.tool || !bookingData.tool.category) {
     return notFound();
   }
 
-  // Type assertion since we've verified tool exists
-  const booking = bookingData as BookingWithDetails & {
-    tool: NonNullable<BookingWithDetails["tool"]>;
-  };
+  // Type assertion since we've verified tool and category exist
+  const booking = bookingData as BookingWithDetails;
 
   const rentalDays = Math.ceil(
     (new Date(booking.rentalEndDate).getTime() -
