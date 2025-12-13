@@ -7,7 +7,9 @@ type Props = {
   searchParams: Promise<{ source?: string; listing_id?: string }>;
 };
 
+export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const tools = await getAllTools();
