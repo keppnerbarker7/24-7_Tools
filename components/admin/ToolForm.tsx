@@ -79,7 +79,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
           placeholder="e.g., Power Drill"
         />
       </div>
@@ -94,7 +94,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
           rows={4}
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
           placeholder="Detailed description of the tool..."
         />
       </div>
@@ -109,7 +109,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
             required
             value={formData.categoryId}
             onChange={(e) => setFormData({ ...formData, categoryId: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
           >
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
@@ -131,7 +131,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
             required
             value={formData.dailyRate}
             onChange={(e) => setFormData({ ...formData, dailyRate: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
             placeholder="25.00"
           />
         </div>
@@ -150,7 +150,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
             required
             value={formData.depositAmount}
             onChange={(e) => setFormData({ ...formData, depositAmount: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
             placeholder="50.00"
           />
         </div>
@@ -164,7 +164,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
             type="text"
             value={formData.igloohomeLockId}
             onChange={(e) => setFormData({ ...formData, igloohomeLockId: e.target.value })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
             placeholder="Optional - defaults to main lock"
           />
         </div>
@@ -179,7 +179,7 @@ export default function ToolForm({ categories, tool, isEdit = false }: Props) {
           type="url"
           value={formData.imageUrl}
           onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none bg-white text-gray-900"
           placeholder="https://example.com/image.jpg (optional)"
         />
         <p className="mt-2 text-sm text-gray-500">

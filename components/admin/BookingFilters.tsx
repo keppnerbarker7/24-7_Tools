@@ -81,7 +81,7 @@ export default function BookingFilters({
             id="status-filter"
             value={currentStatus || "all"}
             onChange={(e) => handleStatusChange(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900"
             disabled={isPending}
           >
             {statusOptions.map((option) => (
@@ -107,7 +107,7 @@ export default function BookingFilters({
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Customer name, email, or booking ID..."
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white text-gray-900"
               disabled={isPending}
             />
             <button
