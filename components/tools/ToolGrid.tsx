@@ -8,7 +8,13 @@ type Props = {
 export default function ToolGrid({ tools }: Props) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {tools.map((tool) => (
+      {tools.map((tool) => {
+        if (!tool.slug) {
+          console.error("Tool missing slug:", tool);
+          return null;
+        }
+
+        return (
         <Link
           key={tool.id}
           href={`/tools/${tool.slug}`}
@@ -33,7 +39,7 @@ export default function ToolGrid({ tools }: Props) {
               </span>
               <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-black/60 text-white text-xs font-semibold border border-white/15">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                Code in 90s
+                Access code in 90s
               </span>
             </div>
           </div>
@@ -64,7 +70,8 @@ export default function ToolGrid({ tools }: Props) {
             </div>
           </div>
         </Link>
-      ))}
+        );
+      })}
     </div>
   );
 }
