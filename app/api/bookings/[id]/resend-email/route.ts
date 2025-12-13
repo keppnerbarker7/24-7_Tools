@@ -18,7 +18,7 @@ export async function POST(
 
     // Get booking details
     const booking = await getBookingById(id);
-    if (!booking) {
+    if (!booking || !booking.tool) {
       return NextResponse.json({ error: "Booking not found" }, { status: 404 });
     }
 
