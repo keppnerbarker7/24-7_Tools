@@ -1,4 +1,4 @@
-import { BookingStatus } from "@prisma/client";
+import { BookingStatus } from "@/types";
 
 interface BookingStatusBadgeProps {
   status: BookingStatus;
