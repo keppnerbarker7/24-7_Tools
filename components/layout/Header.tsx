@@ -47,9 +47,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-11 h-11 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-amber)] rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(255,106,26,0.35)] group-hover:shadow-[0_14px_40px_rgba(255,106,26,0.45)] transition-all group-hover:-translate-y-0.5">
-              <div className="text-white font-black text-lg leading-none text-center">
-                24<br />
-                <span className="text-[11px] tracking-[0.2em]">/7</span>
+              <div className="text-white font-black text-base leading-none">
+                24/7
               </div>
             </div>
             <div className="flex flex-col">
