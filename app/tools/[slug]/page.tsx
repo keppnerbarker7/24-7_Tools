@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getToolBySlug, getAllTools } from "@/lib/tools";
+import { getToolBySlug } from "@/lib/tools";
 import InlineBooking from "@/components/booking/InlineBooking";
 
 type Props = {
@@ -8,15 +8,7 @@ type Props = {
 };
 
 export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
 export const revalidate = 0;
-
-export async function generateStaticParams() {
-  const tools = await getAllTools();
-  return tools.map((tool) => ({
-    slug: tool.slug,
-  }));
-}
 
 export default async function ToolDetailPage({ params, searchParams }: Props) {
   const { slug } = await params;
