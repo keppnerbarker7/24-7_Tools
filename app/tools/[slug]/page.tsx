@@ -1,11 +1,20 @@
 import { notFound } from "next/navigation";
-import { getToolBySlug } from "@/lib/tools";
+import { getToolBySlug, getAllTools } from "@/lib/tools";
 import InlineBooking from "@/components/booking/InlineBooking";
 
 type Props = {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ source?: string; listing_id?: string }>;
 };
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const tools = await getAllTools();
+  return tools.map((tool) => ({
+    slug: tool.slug,
+  }));
+}
 
 export default async function ToolDetailPage({ params, searchParams }: Props) {
   const { slug } = await params;
