@@ -44,15 +44,15 @@ export default async function ToolCatalogPage({ searchParams }: Props) {
                 Your project.
                 <br />
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent)] via-[var(--accent-amber)] to-[#ffd89b]">
-                  Our locker wall.
+                  Our tools.
                 </span>
               </h1>
               <p className="text-base sm:text-xl text-white/80 max-w-2xl leading-relaxed">
-                Pro-grade equipment staged in Orem and accessible 24/7. Filter fast, book in two minutes, and get a code within 90 seconds.
+                Professional-quality equipment staged in Provo and accessible 24/7. Filter fast, book in two minutes, and get an access code within 90 seconds.
               </p>
 
               <div className="flex flex-wrap gap-3 text-sm text-white/70">
-                {["Same-day pickup", "Smart-lock directions", "No counter line", "Clean & inspected"].map((chip) => (
+                {["Same-day pickup", "Clear directions", "Skip the wait", "Clean & inspected"].map((chip) => (
                   <span key={chip} className="px-3 py-1.5 rounded-full bg-white/10 border border-white/10 font-semibold">
                     {chip}
                   </span>
@@ -65,13 +65,6 @@ export default async function ToolCatalogPage({ searchParams }: Props) {
                 <div className="text-sm uppercase tracking-[0.2em] text-white/60 mb-3">Quick filters</div>
                 <SearchBar initialSearch={search} />
                 <CategoryFilter categories={categories} selectedCategory={category} />
-                <div className="flex flex-wrap gap-2 text-xs text-white/70">
-                  {["Quiet mode", "Indoor safe", "Outdoor", "Compact", "Heavy-duty"].map((tag) => (
-                    <span key={tag} className="px-3 py-1.5 rounded-full bg-white/8 border border-white/10 font-semibold">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
             </div>
           </div>

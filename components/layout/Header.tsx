@@ -24,7 +24,7 @@ export default function Header() {
             </span>
             <span className="hidden sm:flex items-center gap-2 text-white/70">
               <span className="h-1 w-1 rounded-full bg-white/30" />
-              Orem, UT locker access
+              1600 N 550 W, Provo, UT 84604
             </span>
           </div>
           <div className="flex items-center gap-2">

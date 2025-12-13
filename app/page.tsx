@@ -18,19 +18,19 @@ export default async function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
                 </span>
-                24/7 Self-Service • Code in 90 seconds
+                Always Open • Instant Access
               </div>
 
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-                  Heavy-duty tools
+                  Heavy-duty tools.
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent)] via-[var(--accent-amber)] to-[#ffd89b]">
-                    without the counter line.
+                    Skip the wait.
                   </span>
                 </h1>
                 <p className="text-lg sm:text-xl lg:text-2xl text-white/80 max-w-2xl leading-relaxed">
-                  Book online, get your smart-lock code instantly, and pull your gear any hour—no paperwork, no staff, no waiting.
+                  Book online, get your smart-lock access code instantly, and pick up your tool any hour—no paperwork, no staff, no waiting.
                 </p>
               </div>
 
@@ -72,9 +72,9 @@ export default async function Home() {
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {[
-                  { title: "Instant code", text: "Delivered in 90 seconds after payment." },
-                  { title: "Locker pickup", text: "Pull gear 24/7 in Orem, UT." },
-                  { title: "Pro-grade", text: "Cleaned, inspected, fuelled, ready." },
+                  { title: "Instant access code", text: "Smart-lock code in 90 seconds after payment." },
+                  { title: "24/7 pickup", text: "Pick up anytime in Provo, Utah." },
+                  { title: "Professional-quality", text: "Cleaned, inspected, fueled, ready." },
                 ].map((item) => (
                   <div key={item.title} className="rounded-xl border border-white/10 bg-white/5 p-4 shadow-[0_14px_40px_rgba(0,0,0,0.25)]">
                     <div className="text-[12px] uppercase tracking-[0.16em] text-white/50 mb-1">{item.title}</div>
@@ -97,8 +97,8 @@ export default async function Home() {
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-4 flex items-center justify-between">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.18em] text-white/60">Locker ETA</p>
-                      <p className="text-lg font-black">Code delivered in 90s</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-white/60">How fast?</p>
+                      <p className="text-lg font-black">Access code in 90s</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="h-10 w-10 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-amber)] text-slate-900 font-black grid place-items-center shadow-[0_10px_30px_rgba(255,106,26,0.35)]">
@@ -132,20 +132,20 @@ export default async function Home() {
               {
                 step: "1",
                 title: "Book online in under 2 minutes",
-                detail: "Pick dates, pay, and get a receipt. No counter forms or phone calls.",
-                meta: "Takes 120s • Stripe secured",
+                detail: "Pick dates, pay, and get a receipt. No waiting in line or phone calls.",
+                meta: "Takes 120s • Secure payment",
               },
               {
                 step: "2",
-                title: "Instant smart-lock code",
-                detail: "We email and text your door + locker code. Directions are included.",
+                title: "Instant smart-lock access code",
+                detail: "We email and text your door + locker code. Clear directions included.",
                 meta: "Code in ~90s • Works 24/7",
               },
               {
                 step: "3",
-                title: "Grab and go at the locker",
-                detail: "Show up whenever. Gear is staged, fueled, and labeled with your name.",
-                meta: "Lighting on site • Quiet pickup",
+                title: "Pick up at the locker",
+                detail: "Show up whenever. Tool is staged, fueled, and labeled with your name.",
+                meta: "Lighting on site • Provo, Utah",
               },
             ].map((item, idx) => (
               <div
@@ -176,7 +176,7 @@ export default async function Home() {
             <div>
               <p className="text-sm uppercase tracking-[0.26em] text-white/60">What you get</p>
               <div className="flex flex-wrap gap-3 mt-3">
-                {["Locker code", "Locker number", "Directions", "Support text"].map((chip) => (
+                {["Smart-lock code", "Locker number", "Clear directions", "24/7 support text"].map((chip) => (
                   <span key={chip} className="px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-white/80 text-sm font-semibold">
                     {chip}
                   </span>

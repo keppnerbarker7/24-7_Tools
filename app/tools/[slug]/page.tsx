@@ -48,10 +48,10 @@ export default async function ToolDetailPage({ params, searchParams }: Props) {
                 {tool.name}
               </h1>
               <p className="text-lg text-white/75 max-w-2xl">
-                Grab it from the locker any hour. Cleaned, inspected, and staged with your name on it. No counter lines—just book, code, and go.
+                Pick up from the locker any hour. Cleaned, inspected, and staged with your name on it. Skip the wait—just book, get your code, and go.
               </p>
               <div className="flex flex-wrap gap-3 text-sm text-white/70">
-                {["Code in 90s", "Locker pickup in Orem", "Fuelled/charged", "Stripe secured"].map((chip) => (
+                {["Access code in 90s", "Pickup in Provo", "Fuelled/charged", "Secure payment"].map((chip) => (
                   <span key={chip} className="px-3 py-1.5 rounded-full bg-white/8 border border-white/10 font-semibold">
                     {chip}
                   </span>
@@ -109,11 +109,11 @@ export default async function ToolDetailPage({ params, searchParams }: Props) {
                   <p className="text-[11px] text-white/50 mt-3">Totals include refundable deposit.</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[rgba(255,106,26,0.18)] to-[rgba(255,179,71,0.12)] p-4 text-slate-900">
-                  <p className="text-xs uppercase tracking-[0.2em] text-white/80 mb-2">Locker status</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-white/80 mb-2">Pickup status</p>
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-white text-lg font-black">Code in ~90s</p>
-                      <p className="text-white/70 text-sm">Directions + locker number included</p>
+                      <p className="text-white text-lg font-black">Access code in ~90s</p>
+                      <p className="text-white/70 text-sm">Clear directions + locker number included</p>
                     </div>
                     <div className="h-12 w-12 rounded-xl bg-white text-slate-900 font-black grid place-items-center shadow-[0_12px_35px_rgba(255,255,255,0.25)]">
                       24/7
@@ -125,8 +125,8 @@ export default async function ToolDetailPage({ params, searchParams }: Props) {
 
             <div className="grid sm:grid-cols-3 gap-4">
               {[
-                { title: "What’s included", detail: "Tools, bits, hoses, and PPE where applicable." },
-                { title: "Pickup time", detail: "Grab anytime—lockers lit and camera monitored." },
+                { title: "What's included", detail: "Tools, bits, hoses, and PPE where applicable." },
+                { title: "Pickup time", detail: "Pick up anytime—lockers lit and camera monitored." },
                 { title: "Support", detail: "Text us if you need a tip. We respond in minutes." },
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-5">
@@ -150,8 +150,8 @@ export default async function ToolDetailPage({ params, searchParams }: Props) {
               <div className="space-y-4">
                 {[
                   { step: "1", title: "Book & pay", copy: "Choose your dates and pay online. Takes under 2 minutes." },
-                  { step: "2", title: "Get code instantly", copy: "Door + locker code sent to email and text in ~90 seconds." },
-                  { step: "3", title: "Grab anytime", copy: "Show up when you want. Gear is staged with your name on it." },
+                  { step: "2", title: "Get access code instantly", copy: "Door + locker access code sent to email and text in ~90 seconds." },
+                  { step: "3", title: "Pick up anytime", copy: "Show up when you want. Your tool is staged with your name on it." },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-amber)] rounded-lg flex items-center justify-center text-slate-900 font-black shadow-[0_10px_30px_rgba(255,106,26,0.3)]">
@@ -182,8 +182,8 @@ export default async function ToolDetailPage({ params, searchParams }: Props) {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <div className="font-bold text-white">Stripe protected</div>
-                    <div className="text-sm text-white/70">Secure payment • Refundable deposit</div>
+                    <div className="font-bold text-white">Payment protected</div>
+                    <div className="text-sm text-white/70">Secure payment • Full deposit refund</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
