@@ -140,7 +140,7 @@ export default async function AdminBookingsPage({
                       </div>
                     </td>
                     <td className="px-6 py-4">
-                      <p className="text-sm text-gray-900">{booking.tool.name}</p>
+                      <p className="text-sm text-gray-900">{booking.tool?.name || 'N/A'}</p>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">
