@@ -1,6 +1,6 @@
 "use client";
 
-import { BookingStatus } from "@prisma/client";
+import { BookingStatus } from "@/types";
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 

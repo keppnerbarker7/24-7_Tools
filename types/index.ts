@@ -31,6 +31,8 @@ export type User = {
   createdAt: Date;
 };
 
+export type BookingStatus = "pending" | "confirmed" | "pending_code" | "completed" | "cancelled";
+
 export type Booking = {
   id: string;
   toolId: string;
@@ -44,7 +46,7 @@ export type Booking = {
   rentalFee: number;
   depositAmount: number;
   accessCode: string | null;
-  status: "pending" | "confirmed" | "pending_code" | "completed" | "cancelled";
+  status: BookingStatus;
   paymentIntentId: string | null;
   trafficSource: string | null;
   fbListingId: string | null;
