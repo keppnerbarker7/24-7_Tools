@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import {
   PaymentElement,
   useStripe,
@@ -19,15 +18,16 @@ export default function PaymentForm({
 }: PaymentFormProps) {
   const stripe = useStripe();
   const elements = useElements();
-  const router = useRouter();
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("💳 Payment form submitted for booking:", bookingId);
 
     if (!stripe || !elements) {
+      console.error("❌ Stripe or Elements not loaded");
       return;
     }
 
@@ -35,6 +35,7 @@ export default function PaymentForm({
     setErrorMessage(null);
 
     try {
+      console.log("🔄 Confirming payment with Stripe...");
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
@@ -43,10 +44,14 @@ export default function PaymentForm({
       });
 
       if (error) {
+        console.error("❌ Payment error:", error);
         setErrorMessage(error.message || "An error occurred during payment");
         setIsProcessing(false);
+      } else {
+        console.log("✅ Payment confirmed, redirecting...");
       }
     } catch (err) {
+      console.error("❌ Unexpected payment error:", err);
       setErrorMessage("An unexpected error occurred");
       setIsProcessing(false);
     }

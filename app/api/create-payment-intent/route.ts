@@ -7,6 +7,13 @@ import { getToolBySlug } from "@/lib/tools";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+    console.log("📝 CREATE PAYMENT INTENT - Request received:", {
+      toolSlug: body.toolSlug,
+      customerEmail: body.customerEmail,
+      startDate: body.startDate,
+      endDate: body.endDate,
+    });
+
     const {
       toolSlug,
       customerName,
@@ -111,6 +118,7 @@ export async function POST(request: Request) {
     }
 
     // Create Stripe PaymentIntent
+    console.log("💳 Creating Stripe PaymentIntent for amount:", pricing.total);
     const paymentIntent = await createPaymentIntent(pricing.total, {
       toolId: tool.id,
       toolName: tool.name,
@@ -120,8 +128,15 @@ export async function POST(request: Request) {
       rentalEndDate: end.toISOString(),
     });
 
+    console.log("✅ PaymentIntent created:", {
+      id: paymentIntent.id,
+      amount: paymentIntent.amount,
+      status: paymentIntent.status,
+    });
+
     // Persist PaymentIntent ID on booking
     await updateBookingPaymentIntent(booking.id, paymentIntent.id);
+    console.log("✅ PaymentIntent ID saved to booking:", booking.id);
 
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
