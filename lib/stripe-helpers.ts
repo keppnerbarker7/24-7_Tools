@@ -5,9 +5,16 @@ let stripe: Stripe | null = null;
 const mockPayments = process.env.MOCK_PAYMENTS === "true";
 
 function getStripe() {
-  if (mockPayments) return null;
-  if (!process.env.STRIPE_SECRET_KEY) return null;
+  if (mockPayments) {
+    console.log("⚠️ MOCK_PAYMENTS is enabled, Stripe disabled");
+    return null;
+  }
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.error("❌ STRIPE_SECRET_KEY is not set in environment variables");
+    return null;
+  }
   if (!stripe) {
+    console.log("✅ Initializing Stripe with key:", process.env.STRIPE_SECRET_KEY?.substring(0, 7) + "...");
     stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: "2025-11-17.clover",
     });
