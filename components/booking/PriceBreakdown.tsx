@@ -24,18 +24,18 @@ export default function PriceBreakdown({
         <span>${dailyRate.toFixed(2)} × {days}</span>
       </div>
 
-      <div className="flex justify-between text-sm font-medium text-gray-900">
+      <div className="flex justify-between text-lg font-bold text-gray-900">
         <span>Rental Subtotal</span>
         <span>${subtotal.toFixed(2)}</span>
       </div>
 
       <div className="flex justify-between text-sm text-gray-600">
-        <span>Security Deposit</span>
+        <span>+ Security Deposit</span>
         <span>${deposit.toFixed(2)}</span>
       </div>
 
       <div className="border-t border-gray-200 pt-2 mt-2">
-        <div className="flex justify-between text-lg font-bold text-gray-900">
+        <div className="flex justify-between text-sm font-medium text-gray-900">
           <span>Total</span>
           <span>${total.toFixed(2)}</span>
         </div>
