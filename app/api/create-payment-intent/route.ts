@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createPaymentIntent } from "@/lib/stripe-helpers";
 import { checkAvailability, calculateRentalPrice } from "@/lib/availability";
-import { createBooking, updateBookingAccessCode, updateBookingStatus } from "@/lib/bookings";
+import { createBooking, updateBookingAccessCode, updateBookingPaymentIntent } from "@/lib/bookings";
 import { getToolBySlug } from "@/lib/tools";
 
 export async function POST(request: Request) {
@@ -121,7 +121,7 @@ export async function POST(request: Request) {
     });
 
     // Persist PaymentIntent ID on booking
-    await updateBookingStatus(booking.id, "pending");
+    await updateBookingPaymentIntent(booking.id, paymentIntent.id);
 
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,

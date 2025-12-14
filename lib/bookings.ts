@@ -125,6 +125,38 @@ export async function updateBookingStatus(
 }
 
 /**
+ * Update booking payment intent ID
+ */
+export async function updateBookingPaymentIntent(
+  id: string,
+  paymentIntentId: string
+): Promise<Booking> {
+  const booking = await prisma.booking.update({
+    where: { id },
+    data: { paymentIntentId },
+    include: {
+      tool: {
+        include: {
+          category: true,
+        },
+      },
+    },
+  });
+
+  return {
+    ...booking,
+    totalAmount: Number(booking.totalAmount),
+    rentalFee: Number(booking.rentalFee),
+    depositAmount: Number(booking.depositAmount),
+    tool: {
+      ...booking.tool,
+      dailyRate: Number(booking.tool.dailyRate),
+      depositAmount: Number(booking.tool.depositAmount),
+    },
+  } as Booking;
+}
+
+/**
  * Update booking with access code
  */
 export async function updateBookingAccessCode(
