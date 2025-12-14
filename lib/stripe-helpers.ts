@@ -38,9 +38,7 @@ export async function createPaymentIntent(
     amount: Math.round(amount * 100), // Convert to cents
     currency: "usd",
     metadata,
-    automatic_payment_methods: {
-      enabled: true,
-    },
+    payment_method_types: ["card"], // Only enable card payments
   });
 
   return paymentIntent;
