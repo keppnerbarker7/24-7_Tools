@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getBookingById } from "@/lib/bookings";
 import { format } from "date-fns";
 import Link from "next/link";
+import ConfirmationPageClient from "@/components/booking/ConfirmationPageClient";
 
 export default async function BookingConfirmationPage({
   params,
@@ -22,6 +23,9 @@ export default async function BookingConfirmationPage({
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-3xl mx-auto px-4">
+        {/* Auto-refresh for pending payments */}
+        <ConfirmationPageClient bookingId={booking.id} initialStatus={booking.status} />
+
         {/* Success Header */}
         {isConfirmed && (
           <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 mb-6">

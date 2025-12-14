@@ -23,7 +23,7 @@ export default async function Home() {
 
               <div className="space-y-4">
                 <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-                  Heavy-duty tools.
+                  Pro-grade tools.
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent)] via-[var(--accent-amber)] to-[#ffd89b]">
                     Skip the wait.

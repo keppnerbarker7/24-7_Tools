@@ -59,16 +59,16 @@ export default function DateRangePicker({
   const handleDateClick = (date: Date) => {
     if (!selectingEndDate) {
       setStartDate(date);
-      setEndDate(null);
+      setEndDate(date); // Default end date to same as start (single-day rental)
       setSelectingEndDate(true);
-      onDateChange(date, null);
+      onDateChange(date, date); // Allow single-day rental by default
       return;
     }
 
     if (startDate && isBefore(date, startDate)) {
       setStartDate(date);
-      setEndDate(null);
-      onDateChange(date, null);
+      setEndDate(date); // Reset to single-day
+      onDateChange(date, date);
       return;
     }
 

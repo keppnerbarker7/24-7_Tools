@@ -241,17 +241,17 @@ export default function InlineBooking({
         </div>
 
         {pricing && isAvailable && (
-          <div className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3 flex flex-wrap gap-3 items-center text-sm text-white/80">
-            <span className="font-bold text-white">Summary</span>
-            <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15">
-              {pricing.days} days
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15">
-              ${pricing.total.toFixed(2)} total
-            </span>
-            <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15">
-              Includes ${tool.depositAmount.toFixed(2)} deposit
-            </span>
+          <div className="rounded-2xl border border-white/15 bg-white/5 px-4 py-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-bold text-white">Rental cost</span>
+              <span className="text-2xl font-black text-white">
+                ${pricing.subtotal.toFixed(0)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between text-sm text-white/70">
+              <span>{pricing.days} {pricing.days === 1 ? 'day' : 'days'} × ${tool.dailyRate.toFixed(0)}/day</span>
+              <span className="text-xs">+ ${tool.depositAmount.toFixed(0)} deposit</span>
+            </div>
           </div>
         )}
 
